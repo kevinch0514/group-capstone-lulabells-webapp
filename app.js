@@ -1,17 +1,16 @@
 let path = require('path');
 let express = require('express');
 let Router = require('express-promise-router');
-let handlebars = require('express-handlebars');
 let logger = require('morgan');
 let app = express();
 
 app.set('view engine', 'hbs');
-app.engine('hbs', handlebars({
-  layoutsDir: __dirname + '/views/layouts',
-  extname: 'hbs',
-  defaultLayout: 'index',
-  partialsDir: __dirname + '/views/partials/'
-}));
+// app.engine('hbs', handlebars({
+//   layoutsDir: __dirname + '/views/layouts',
+//   extname: 'hbs',
+//   defaultLayout: 'index',
+//   partialsDir: __dirname + '/views/partials/'
+// }));
 
 app.use(express.static('public'))
 
@@ -24,47 +23,47 @@ app.use(logger('dev'));
 
 router.get('/', async(request, response) => {
 
-  response.render("home", {layout: "index"});
+  response.render("home");
 });
 
 router.get('/food', async(request, response) => {
 
-  response.render("food", {layout: "index"});
+  response.render("food");
 });
 
 router.get('/hygiene', async(request, response) => {
 
-  response.render("hygiene", {layout: "index"});
+  response.render("hygiene");
 });
 
 router.get('/textbook', async(request, response) => {
 
-  response.render("textbook", {layout: "index"});
+  response.render("textbook");
 });
 
 router.get('/professionalclothing', async(request, response) => {
 
-  response.render("professionalclothing", {layout: "index"});
+  response.render("professionalclothing");
 });
 
 router.get('/winterclothing', async(request, response) => {
 
-  response.render("winterclothing", {layout: "index"});
+  response.render("winterclothing");
 });
 
 router.get('/donations', async(request, response) => {
 
-  response.render("donations", {layout: "index"});
+  response.render("donations");
 });
 
 router.get('/contact', async(request, response) => {
 
-  response.render("contact", {layout: "index"});
+  response.render("contact");
 });
 
 router.get('/shopping', async(request, response) => {
 
-  response.render("shopping", {layout: "index"});
+  response.render("shopping");
 });
 
 let SERVER_PORT = process.env.PORT || 3000;

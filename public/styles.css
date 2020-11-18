@@ -87,3 +87,57 @@ body {
   padding: 20px 0;
   font-size: 30px;
 }
+
+
+/* SHOPPING */
+#shopping.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 10px;
+  padding: 10px;
+  align-items: stretch;
+}
+
+#shopping.grid-container > div {
+  background-color: silver;
+  text-align: center;
+  margin: 5px;
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dot {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#dairy.dot {
+  background-color: blue;
+}
+
+#fruits.dot {
+  background-color: orange;
+}
+
+#vegetables.dot {
+  background-color: green;
+}
+
+#grains.dot {
+  background-color: yellow;
+}
+
+#protein.dot {
+  background-color: red;
+}
+
+#flavoring.dot {
+  background-color: purple;
+}
+
+#bonus.dot {
+  background-color: white;
+}

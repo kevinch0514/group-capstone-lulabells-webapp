@@ -62,6 +62,11 @@ router.get('/contact', async(request, response) => {
   response.render("contact", {layout: "index"});
 });
 
+router.get('/shopping', async(request, response) => {
+
+  response.render("shopping", {layout: "index"});
+});
+
 let SERVER_PORT = process.env.PORT || 3000;
 
 app.listen(SERVER_PORT, () => {

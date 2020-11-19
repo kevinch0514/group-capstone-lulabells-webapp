@@ -66,6 +66,51 @@ router.get('/shopping', async(request, response) => {
   response.render("shopping");
 });
 
+router.get('/winterwear', async(request, response) => {
+
+  response.render("winterwear");
+});
+
+
+// NEW SECTION FOR WINTER WEAR ROUTES (lines 75 to 113)
+// let Router = require('express-promise-router');
+// let db = require('../lib/database');
+// let router = Router();
+
+// http://localhost:3000/winterwear/172/edit
+router.get('/winterwear/:winterwearId/edit', async(request, response) => {
+  let winterwearId = request.winterwearId;
+  let winterwear = await db('winterwear').where('id', winterwearId);
+
+  response.render('winterwear-edit', { winterwear: winterwear });
+});
+
+router.post('/winterwear/:winterwearId', async(request, response) => {
+  let userData = request.body;
+  let winterwear = await db('winterwear').where('id', winterwearId);
+  // change winterwear based on user-supplied data and save back to database
+  // redirect somewhere after UPDATE
+});
+
+router.get('/winterwear/new', async(request, response) => {
+  response.render('winterwear-new');
+});
+
+router.post('/winterwear', async(request, response) => {
+  let userData = request.body;
+
+  let winterwearData = {
+    sku: userData.sku,
+    name: userData.name,
+    description: userData.description,
+  };
+
+  await db('winterwear').insert(winterwearData);
+
+  response.redirect('/');
+});
+
+module.exports = router;
 
 let SERVER_PORT = process.env.PORT || 3000;
 

@@ -26,29 +26,19 @@ router.get('/', async(request, response) => {
   response.render("home");
 });
 
-router.get('/food', async(request, response) => {
-
-  response.render("food");
-});
-
-router.get('/hygiene', async(request, response) => {
-
-  response.render("hygiene");
-});
-
 router.get('/textbook', async(request, response) => {
 
   response.render("textbook");
 });
 
-router.get('/professionalclothing', async(request, response) => {
+router.get('/formalWear', async(request, response) => {
 
-  response.render("professionalclothing");
+  response.render("formalWear");
 });
 
-router.get('/winterclothing', async(request, response) => {
+router.get('/winterwear', async(request, response) => {
 
-  response.render("winterclothing");
+  response.render("winterwear");
 });
 
 router.get('/donations', async(request, response) => {
@@ -80,9 +70,9 @@ router.get('/winterwear', async(request, response) => {
 // http://localhost:3000/winterwear/172/edit
 router.get('/winterwear/:winterwearId/edit', async(request, response) => {
   let winterwearId = request.winterwearId;
-  let winterwear = await db('winterwear').where('id', winterwearId);
+ // let winterwear = await db('winterwear').where('id', winterwearId);
 
-  response.render('winterwear-edit', { winterwear: winterwear });
+  response.render('winterwear-edit', { winterwear: winterwearId });
 });
 
 router.post('/winterwear/:winterwearId', async(request, response) => {

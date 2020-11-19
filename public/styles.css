@@ -141,3 +141,14 @@ body {
 #bonus.dot {
   background-color: white;
 }
+
+h1 { 
+  color: purple;
+  font-family: 'Great Vibes';
+  font-size: 40px;
+  text-align: center;
+}
+
+.homePage{
+  align-content: center;
+}

@@ -142,7 +142,7 @@ body {
   background-color: white;
 }
 
-h1 { 
+h1 {
   color: purple;
   font-family: 'Great Vibes';
   font-size: 40px;
@@ -151,4 +151,60 @@ h1 {
 
 .homePage{
   align-content: center;
+}
+
+
+/* FORMS */
+form {
+  font-family: 'Hind', sans-serif;
+  font-size: 1vw;
+  color: black;
+}
+
+input {
+  font-family: 'Hind', sans-serif;
+  font-size: 1vw;
+  color: black;
+  width: 2vw;
+  height: 1vw;
+}
+
+label {
+  font-family: 'Hind', sans-serif;
+  font-size: 1vw;
+  color: black;
+}
+
+/* WINTER WEAR */
+#winterwear.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+  padding: 10px;
+  align-items: stretch;
+}
+
+#winterwear.grid-container > div {
+  background-color: rgb(195, 195, 255);
+  text-align: center;
+  margin: 5px;
+  padding: 20px 0;
+}
+
+#winterwear.grid-container > div h1 {
+  font-family: 'Hind', sans-serif;
+  font-size: 30px;
+  color: black;
+}
+
+#winterwear.grid-container > div h2 {
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
+#winterwear.grid-container > div p {
+  font-family: 'Hind', sans-serif;
+  font-size: 10px;
+  color: black;
 }

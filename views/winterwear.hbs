@@ -18,3 +18,26 @@
 <h2>Winter Wear</h2>
 <h2><a href="/winterwear/new">Create</a></h2>
 <h2><a href="/winterwear/172/edit">Edit</a></h2>
+
+
+<div id="winterwear">
+  <h2>Winterwear</h2>
+
+  {{#unless winterwear}}
+    <p>Sorry, no winterwear. :(</p>
+  {{else}}
+    <div class="grid-container" id="winterwear">
+      {{#each winterwear}}
+      <div>
+        <h1>{{this.name}}</h1>
+        <h2>{{this.description}}</h2>
+        <p>ID: {{this.id}} & SKU: {{this.sku}}</p>
+        <button class="button" id="winterwear-cart">Request</button>
+        {{!-- <a href="./winterwear/{{this.id}}/edit">EDIT</a> --}}
+      </div>
+      {{/each}}
+    </div>
+  {{/unless}}
+
+</div>
+</div>

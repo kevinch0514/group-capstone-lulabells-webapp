@@ -1,18 +1,24 @@
-<h1>Winterwear Edit</h1>
-<form method="POST" action="/winterwear/{{id}}">
-  <div>
-    <label for="sku">SKU</label>
-    <input type="text" name="sku" value="{{sku}}">
-  </div>
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" value="{{name}}">
-  </div>
-  <div>
-    <label for="description">Description</label>
-    <textarea name="description">{{description}}</textarea>
-  </div>
-  <div>
-    <button type="submit">Update Item</button>
-  </div>
-</form>
+<div style="text-align: center;">
+  <h1>Winterwear Edit</h1>
+  {{winterwear.admin}}
+  {{#if winterwear.admin}}<form method="POST" action="/winterwear/{{winterwear.id}}">
+    <div>
+      <label for="sku">SKU</label>
+      <input type="text" name="sku" value="{{winterwear.sku}}">
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" value="{{winterwear.name}}">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description">{{winterwear.description}}</textarea>
+    </div>
+    <div>
+      <button class="button" type="submit">Update Item</button>
+    </div>
+  </form>
+  {{else}}
+  Access Denied
+  {{/if}}
+</div>

@@ -13,13 +13,13 @@ app.set('view engine', 'hbs');
 // }));
 
 app.use(express.static('public'))
-
+app.use(express.urlencoded({ extended: true }));
 let router = Router();
 app.use(router);
 
 app.use(logger('dev'));
 
-
+let db = require('./database');
 
 router.get('/', async(request, response) => {
 
@@ -36,10 +36,10 @@ router.get('/formalWear', async(request, response) => {
   response.render("formalWear");
 });
 
-router.get('/winterwear', async(request, response) => {
+// router.get('/winterwear', async(request, response) => {
 
-  response.render("winterwear");
-});
+//   response.render("winterwear");
+// });
 
 router.get('/donations', async(request, response) => {
 
@@ -57,8 +57,11 @@ router.get('/shopping', async(request, response) => {
 });
 
 router.get('/winterwear', async(request, response) => {
-
-  response.render("winterwear");
+  let winterwear = await db('products').select('*').orderBy('name', 'ASC');
+  let viewName = 'winterwear';
+  let viewData = { winterwear: winterwear };
+  console.log('winterwear is', winterwear);
+  response.render(viewName, viewData);
 });
 
 
@@ -69,17 +72,28 @@ router.get('/winterwear', async(request, response) => {
 
 // http://localhost:3000/winterwear/172/edit
 router.get('/winterwear/:winterwearId/edit', async(request, response) => {
-  let winterwearId = request.winterwearId;
- // let winterwear = await db('winterwear').where('id', winterwearId);
-
-  response.render('winterwear-edit', { winterwear: winterwearId });
+  let winterwearId = request.params.winterwearId;
+  let winterwear = await db('products').where('id', winterwearId).first();
+  console.log('winterwearID is', winterwearId);
+  console.log('winterwear is', winterwear);
+  winterwear.admin = true;
+  response.render('winterwear-edit', { winterwear: winterwear });
 });
 
 router.post('/winterwear/:winterwearId', async(request, response) => {
   let userData = request.body;
-  let winterwear = await db('winterwear').where('id', winterwearId);
+  let winterwearId = request.params.winterwearId;
+  let winterwear = await db('products').where('id', winterwearId).first();
   // change winterwear based on user-supplied data and save back to database
   // redirect somewhere after UPDATE
+  let winterwearData = {
+    sku: userData.sku,
+    name: userData.name,
+    description: userData.description,
+  };
+
+  await db('products').where('id', winterwearId).update(winterwearData);
+  response.redirect(`/winterwear/${winterwearId}/edit`);
 });
 
 router.get('/winterwear/new', async(request, response) => {
@@ -88,6 +102,7 @@ router.get('/winterwear/new', async(request, response) => {
 
 router.post('/winterwear', async(request, response) => {
   let userData = request.body;
+  console.log('user data is', userData)
 
   let winterwearData = {
     sku: userData.sku,
@@ -95,9 +110,9 @@ router.post('/winterwear', async(request, response) => {
     description: userData.description,
   };
 
-  await db('winterwear').insert(winterwearData);
+  await db('products').insert(winterwearData);
 
-  response.redirect('/');
+  response.redirect('/winterwear');
 });
 
 module.exports = router;

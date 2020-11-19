@@ -143,7 +143,7 @@ body {
   background-color: white;
 }
 
-h1 { 
+h1 {
   color: purple;
   font-family: 'Great Vibes';
   font-size: 40px;
@@ -168,4 +168,170 @@ h1 {
 .image-gallery img:nth-child(5){
   grid-column: auto/span 5;
   grid-row: auto/ span 5;
+}
+.homePage{
+  align-content: center;
+}
+
+
+/* FORM & BUTTON */
+form {
+  font-family: 'Hind', sans-serif;
+  color: black;
+}
+
+input {
+  font-family: 'Hind', sans-serif;
+  color: black;
+  width: 23vw;
+  height: 2vw;
+}
+
+label {
+  display: block;
+  font-family: 'Hind', sans-serif;
+  font-size: 1.25rem;
+  color: black;
+}
+
+input,
+label {
+  margin: .4rem 0;
+}
+
+.button {
+  background-color: turquoise;
+  font-family: 'Hind', sans-serif;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+
+
+/* WINTER WEAR */
+#winterwear.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+  padding: 10px;
+  align-items: stretch;
+}
+
+#winterwear.grid-container > div {
+  background-color: rgb(195, 195, 255);
+  text-align: center;
+  margin: 5px;
+  padding: 20px 0;
+}
+
+#winterwear.grid-container > div h1 {
+  font-family: 'Hind', sans-serif;
+  font-size: 30px;
+  color: black;
+}
+
+#winterwear.grid-container > div h2 {
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
+#winterwear.grid-container > div p {
+  font-family: 'Hind', sans-serif;
+  font-size: 10px;
+  color: black;
+}
+
+#winterwear-request.button {
+  background-color: turquoise;
+  font-family: 'Hind', sans-serif;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#winterwear-new.button {
+  background-color: gray;
+  font-family: 'Hind', sans-serif;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 30px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  margin: 50px;
+}
+
+#winterwear-edit.button {
+  background-color: yellow;
+  font-family: 'Hind', sans-serif;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button:hover {
+  background-color: darkgray;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }

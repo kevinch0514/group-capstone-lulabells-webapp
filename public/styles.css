@@ -6,7 +6,8 @@ body {
 /* NAVIGATION BAR */
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color:#4fe222ce
+  ;
 }
 
 .navbar a {
@@ -149,6 +150,22 @@ h1 {
   text-align: center;
 }
 
-.homePage{
-  align-content: center;
+.image-gallery{
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repear (3, 1fr);
+  grid-template-rows: 325px 325px 120px;
+  margin: 0 auto 80px;
+  max-width: 80vw;
+}
+
+.image-gallery img{
+  height: 100%;
+  width: 100%;
+  object-fit:cover;
+}
+
+.image-gallery img:nth-child(5){
+  grid-column: auto/span 5;
+  grid-row: auto/ span 5;
 }

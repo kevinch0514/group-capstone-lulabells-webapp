@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/express_auth_dev',
+    connection: 'postgres://localhost:5432/lula_bells_dev',
     debug: false,
     migrations: {
       tableName: 'knex_migrations',

@@ -18,10 +18,10 @@
   "license": "CC-BY-SA-4.0",
   "author": "Jesse Farmer <jesse@20bits.com>",
   "scripts": {
-    "db:create": "createdb express_auth_dev",
-    "db:drop": "dropdb express_auth_dev",
+    "db:create": "createdb lula_bells_dev",
+    "db:drop": "dropdb lula_bells_dev",
     "db:migrate": "knex migrate:latest",
-    "db:psql": "psql express_auth_dev",
+    "db:psql": "psql lula_bells_dev",
     "db:setup": "npm run db:create && npm run db:migrate",
     "dev": "nodemon",
     "lint": "eslint .",

@@ -28,7 +28,7 @@
         <h1>{{this.name}}</h1>
         <h2>{{this.description}}</h2>
         <p>ID: {{this.id}} & SKU: {{this.sku}}</p>
-        <button class="trigger" id="winterwear-request">Request</button>
+        <button class="request" id="winterwear-request">Request</button>
         <a href="./winterwear/{{this.id}}/edit"><button class="button" id="winterwear-edit">Edit</button></a>
       </div>
       {{/each}}
@@ -49,18 +49,18 @@
           <form id="request">
             <div>
               <label for="fname">First name:</label>
-              <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br>
+              <input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
             </div>
             <div>
               <label for="lname">Last name:</label>
-              <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br>
+              <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
             </div>
             <div>
               <label for="email">Davidson Email Address:</label>
-              <input type="text" id="email" name="email" placeholder="Enter your Davidson email address"><br>
+              <input type="text" id="email" name="email" placeholder="Enter your Davidson email address" required>
             </div>
             <div>
-            <button type="submit">Submit Request</button>
+            <button class="button" type="submit">Submit Request</button>
             </div>
           </form>
     </div>
@@ -68,20 +68,14 @@
 
 <script>
   var modal = document.querySelector(".modal");
-  var trigger = document.querySelector(".trigger");
+  var request = document.querySelector(".request");
   var closeButton = document.querySelector(".close-button");
 
   function toggleModal() {
       modal.classList.toggle("show-modal");
   }
 
-  function windowOnClick(event) {
-      if (event.target === modal) {
-          toggleModal();
-      }
-  }
-
-  trigger.addEventListener("click", toggleModal);
+  request.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 </script>

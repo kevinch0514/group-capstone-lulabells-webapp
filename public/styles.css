@@ -154,31 +154,23 @@ h1 {
 }
 
 
-/* FORMS */
+/* FORM & BUTTON */
 form {
   font-family: 'Hind', sans-serif;
-  font-size: 1vw;
   color: black;
 }
 
 input {
   font-family: 'Hind', sans-serif;
-  font-size: 1vw;
   color: black;
-  width: 20vw;
-  height: 1vw;
-}
-
-label {
-  font-family: 'Hind', sans-serif;
-  font-size: 1vw;
-  color: black;
+  width: 23vw;
+  height: 2vw;
 }
 
 label {
   display: block;
   font-family: 'Hind', sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: black;
 }
 
@@ -186,6 +178,23 @@ input,
 label {
   margin: .4rem 0;
 }
+
+.button {
+  background-color: turquoise;
+  font-family: 'Hind', sans-serif;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+
 
 /* WINTER WEAR */
 #winterwear.grid-container {

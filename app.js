@@ -76,7 +76,7 @@ router.get('/winterwear/:winterwearId/edit', async(request, response) => {
   let winterwear = await db('products').where('id', winterwearId).first();
   console.log('winterwearID is', winterwearId);
   console.log('winterwear is', winterwear);
-  winterwear.admin = false;
+  winterwear.admin = true;
   response.render('winterwear-edit', { winterwear: winterwear });
 });
 

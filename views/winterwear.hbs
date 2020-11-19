@@ -21,6 +21,11 @@
 
   {{#unless winterwear}}
     <p>Sorry, no Winter Wear. :(</p>
+    <div class="grid-container" id="winterwear"></div>
+      <div>
+        <a href="./winterwear/new"><button class="button" id="winterwear-new">+</button></a>
+      </div>
+    </div>
   {{else}}
     <div class="grid-container" id="winterwear">
       {{#each winterwear}}

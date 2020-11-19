@@ -7,7 +7,7 @@
     </button>
     <div class="dropdown-content">
       <a href="/textbook">Textbook</a>
-      <a href="/formalwear">Professional Wear</a>
+      <a href="/formalwear">Formal Wear</a>
       <a href="/winterwear">Winter Wear</a>
       <a href="/shopping">Shopping</a>
     </div>
@@ -15,16 +15,12 @@
   <a href="/donations">Donations</a>
   <a href="/contact">Contact</a>
 </div>
-<h2>Winter Wear</h2>
-<h2><a href="/winterwear/new">Create</a></h2>
-<h2><a href="/winterwear/172/edit">Edit</a></h2>
-
 
 <div id="winterwear">
-  <h2>Winterwear</h2>
+  <h2>Winter Wear</h2>
 
   {{#unless winterwear}}
-    <p>Sorry, no winterwear. :(</p>
+    <p>Sorry, no Winter Wear. :(</p>
   {{else}}
     <div class="grid-container" id="winterwear">
       {{#each winterwear}}
@@ -32,12 +28,60 @@
         <h1>{{this.name}}</h1>
         <h2>{{this.description}}</h2>
         <p>ID: {{this.id}} & SKU: {{this.sku}}</p>
-        <button class="button" id="winterwear-cart">Request</button>
-        {{!-- <a href="./winterwear/{{this.id}}/edit">EDIT</a> --}}
+        <button class="trigger" id="winterwear-request">Request</button>
+        <a href="./winterwear/{{this.id}}/edit"><button class="button" id="winterwear-edit">Edit</button></a>
       </div>
       {{/each}}
+      <div>
+        <a href="./winterwear/new"><button class="button" id="winterwear-new">+</button></a>
+      </div>
     </div>
   {{/unless}}
 
 </div>
 </div>
+
+
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+        <h1>Submit a request form.</h1>
+          <form id="request">
+            <div>
+              <label for="fname">First name:</label>
+              <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br>
+            </div>
+            <div>
+              <label for="lname">Last name:</label>
+              <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br>
+            </div>
+            <div>
+              <label for="email">Davidson Email Address:</label>
+              <input type="text" id="email" name="email" placeholder="Enter your Davidson email address"><br>
+            </div>
+            <div>
+            <button type="submit">Submit Request</button>
+            </div>
+          </form>
+    </div>
+</div>
+
+<script>
+  var modal = document.querySelector(".modal");
+  var trigger = document.querySelector(".trigger");
+  var closeButton = document.querySelector(".close-button");
+
+  function toggleModal() {
+      modal.classList.toggle("show-modal");
+  }
+
+  function windowOnClick(event) {
+      if (event.target === modal) {
+          toggleModal();
+      }
+  }
+
+  trigger.addEventListener("click", toggleModal);
+  closeButton.addEventListener("click", toggleModal);
+  window.addEventListener("click", windowOnClick);
+</script>

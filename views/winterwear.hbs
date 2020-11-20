@@ -73,14 +73,17 @@
 
 <script>
   var modal = document.querySelector(".modal");
-  var request = document.querySelector(".request");
+  var request = document.querySelectorAll(".request");
   var closeButton = document.querySelector(".close-button");
+
+  for (let button of request) {
+    button.addEventListener("click", toggleModal);
+  }
 
   function toggleModal() {
       modal.classList.toggle("show-modal");
   }
 
-  request.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 </script>
